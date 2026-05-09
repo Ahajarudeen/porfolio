@@ -1,0 +1,175 @@
+.navebar{
+    position: sticky;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    width: 100vw;   
+    height: 45px;
+    float: right;
+    background-color: lightgrey;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+
+}
+body{
+    background: linear-gradient( to bottom right, #e0eafc, #cfdef3);
+    min-height: 100vh;
+    margin: 0;
+    margin: 0px;
+}
+span{
+    float: inline-end;
+    padding-right: 30px;
+
+
+}
+.About{
+    padding: 10px;
+    background-color: #6366F1;
+    border: 1px solid beige;
+    border-radius: 22px;
+    height: 90vh;
+    display: flex;
+    width: 90vw;
+    margin-left: 3.9vw;
+    justify-content: center;
+    align-items: center; 
+}
+.About p{
+    font-size: 50px;
+    text-align: center;
+    color: #1E293B;
+}
+img{
+    height: 350px;
+    width: 350px;
+    border-radius: 50%;
+
+}
+.SkillS span{
+    height: fit-content;
+    width: 200px;
+    border: 1px solid rgb(255, 155, 242);
+    border-radius: 700px;
+    text-align: center;
+    padding: 10px;
+    color: hsla(60, 1%, 34%, 0.747);
+    background-color:  rgb(255, 155, 242);
+}
+.SkillS{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.SkillS:hover{
+    cursor: pointer;
+}
+h1{
+    text-align: center;
+    color: #FFFFFF;
+    font-style: Sans-serif;
+    margin: 0px;
+
+}
+.Project-list{
+    height: 15vh;
+    width: 87vw;
+    border: 1px solid #BBD5DA;
+    border-radius: 25px;
+    padding: 20px;
+    margin-left: 3.8vw;
+    background-color: #BBD5DA;
+
+}
+.Project{
+    text-align: center;
+    border: 1px solid #DFF1F1;
+    border-radius: 25px;
+    height: fit-content;
+    width: 82vw;
+    margin-left: 2.5vw;
+    background-color:#DFF1F1 ;
+    color: #212529;
+}
+.Intenship{
+    border: 1px solid #F1F5F9;
+    border-radius: 20px;
+    color: #38BDF8;
+    height: 15vh;
+    width: 90vw;
+    margin-left: 3.8vw;
+    background-color: #F1F5F9;
+    text-align: center;
+    font-size: larger;
+
+}
+.Contect{
+    height: fit-content;
+    width: 87vw;
+    border: 2px solid #F5F5F5;
+    border-radius: 30px;
+    text-align: center;
+    padding: 20px;
+    margin-left: 3.8vw;
+    background-color: #F5F5F5;
+    color: rgb(133, 11, 0);
+
+}
+.footer{
+    border: 1px solid lightgrey;
+    width: 100%;
+    width: 100vw;
+    height: 40px;
+    float: right;
+    background-color: lightgrey;
+    text-align: center;
+    margin-top: 20px;
+}
+@media screen and (max-width:480px)  {
+    .About{
+        border-radius: 30px;
+        height: fit-content;
+        flex-direction: column;
+    }
+    .About p{
+        font-size: 30px;
+        text-align: center;
+    }
+    img{
+        height: 300px;
+        width: 300px;
+        border-radius: 50%;
+    }
+    .SkillS{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .Project{
+        width: 85vw;
+    }
+    .Project-list{
+        width: 90vw;
+    }
+    .Contect{
+        width: 90vw;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:900px) {
+    .About{
+        height: fit-content;
+    }
+    .About p{
+        font-size: 35px;
+    }
+    .SkillS{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+    }
+}
+
