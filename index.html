@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="./portfolio.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-     <div class="navebar">
-        <ul style="list-style-type: none;">
+     <nav class="navebar">
+        <ul  class="Nav-list" id="navlist">
             <a href="#About"><span>about</span></a>
             <a href="#SkillS"><span>Skill</span></a>
             <a href="#Intenship"><span>Intenship</span></a>
@@ -16,7 +17,13 @@
             <a href="#Contect"><span>contect</span></a>
         </ul>
 
-    </div>
+        <div class="nav-menu" id="menubtn"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            </svg>
+        </div>
+
+    </nav>
     <h1 id="About">About</h1>
        <div class="About">
         <div>
@@ -58,24 +65,69 @@
 
     </div>
     <h1 id="Contect">Contect</h1>
-    <div class="Contect">
-        <label >Enter Your Name</label>
-        <input type="text" placeholder="Enter Your Name">
-        <br><br>
-        <label >Enter Your Email Id</label>
-        <input type="email" placeholder="Enter Your Email Id">
-        <br><br>
-        <label >Enter Your Message</label>
-        <textarea  placeholder="Enter Your Message"></textarea>
-        <br><br>
-        <input type="submit">
-    
-    </div>
+    <form action="https://api.web3forms.com/submit" method="POST" class="Contect">
+        
+        <input type="hidden" name="access_key" value="58e3ede5-b8f2-4cba-9069-b59a5225fc7e">
+        <label for="">Name</label>
+        <input type="text" name="name" required> <br><br>
+        <label for="">email</label>
+        <input type="email" name="email" required><br><br>
+        <label for="">message</label>
+        <textarea name="message" required></textarea><br><br>
+  
+        <button type="submit">Submit</button>
+</form>
     <footer>
         <div class="footer">
             <p>Copyright - Hajarudheen.A</p>
-            <a href="https://github.com/Ahajarudeen">gitgub</a>
+            <a href="https://github.com/Ahajarudeen"><i class="bi bi-git" style="font-size: 50px;"></i></a>
         </div>
     </footer>
+    <script>
+        const form = document.getElementById('form');
+        const submitBtn = form.querySelector('button[type="submit"]');
+
+        const menubtn = document.getElementById('menubtn');
+        const navlist = document.getElementById('navlist');
+
+        menubtn.addEventListener("click",()=>{
+    navlist.classList.toggle("active")
+})
+
+        form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    formData.append("access_key", "58e3ede5-b8f2-4cba-9069-b59a5225fc7e");
+
+    const originalText = submitBtn.textContent;
+
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Success! Your message has been sent.");
+            form.reset();
+        } else {
+            alert("Error: " + data.message);
+        }
+
+    } catch (error) {
+        alert("Something went wrong. Please try again.");
+    } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
+});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
